@@ -5,7 +5,7 @@ pipeline {
         stage('checkout') {
             steps {
                 // Checkout the code from the repository
-                git branch: 'main', url: 'https://github.com/sheir296/scd-lab-10.git'
+                git branch: 'master', url: 'https://github.com/sheir296/scd-lab-10.git'
             }
         }
         
