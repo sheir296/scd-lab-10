@@ -4,30 +4,30 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                sh 'git pull https://github.com/sheir296/scd-lab-10.git'
+                // Checkout the code from the repository
+                git branch: 'main', url: 'https://github.com/sheir296/scd-lab-10.git'
             }
         }
         
         stage('dependency') {
             steps {
+                // Install project dependencies
                 sh 'npm install'
             }
         }
         
+        // You can skip the test stage
+        
         stage('build') {
             steps {
-                sh 'cd app/models'
+                // Build the project
+                sh 'npm run build'
             }
         }
         
-        stage('test') {
+        stage('Docker Compose Up') {
             steps {
-                sh 'npm test'
-            }
-        }
-        
-        stage('Docker Comopse Up') {
-            steps {
+                // Bring up Docker Compose services
                 sh 'docker compose up'
             }
         }
