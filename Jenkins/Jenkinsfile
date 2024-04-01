@@ -1,0 +1,37 @@
+pipeline {
+
+    agent any
+    
+    stages {
+        stage('checkout') {
+          steps {
+              sh 'npm install'
+            }
+          }
+        
+        stage('dependency') {
+          steps {
+              sh 'npm install'
+            }
+          }
+        
+         stage('build') {
+          steps {
+              sh 'npm install'
+            }
+          }
+        
+        stage('test') {
+          steps {
+              sh 'npm install'
+            }
+          }
+        stage('Docker Comopse Up') {
+            steps {
+               
+                    sh "docker compose up"
+                
+            }
+        }
+    }
+}
