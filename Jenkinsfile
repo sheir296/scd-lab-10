@@ -1,27 +1,36 @@
 pipeline {
-
     agent any
-
+    
     stages {
-         stage('build') {
-          steps {
-              sh 'npm install'
-            }
-          }
-
-        stage('Docker Comopse Up') {
+        stage('checkout') {
             steps {
-
-                    sh "docker compose up"
-
+                sh 'git pull https://github.com/sheir296/scd-lab-10.git'
             }
         }
-         stage('kill') {
+        
+        stage('dependency') {
             steps {
-
-                    sh "docker compose down"
-
+                sh 'npm install'
             }
-        }
-    }
+        }
+        
+        stage('build') {
+            steps {
+                sh 'cd app/models'
+            }
+        }
+        
+        stage('test') {
+            steps {
+                
+               sh "echo 'No tests specified'"
+            }
+        }
+        
+        stage('Docker Comopse Up') {
+            steps {
+                sh "docker compose up"
+            }
+        }
+    }
 }
