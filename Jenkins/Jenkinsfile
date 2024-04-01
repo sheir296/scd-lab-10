@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('checkout') {
           steps {
-              sh 'npm install'
+              sh 'git pull https://github.com/sheir296/scd-lab-10.git'
             }
           }
         
@@ -17,13 +17,14 @@ pipeline {
         
          stage('build') {
           steps {
-              sh 'npm install'
+              sh 'cd jenkins/app/models'
+              
             }
           }
         
         stage('test') {
           steps {
-              sh 'npm install'
+              sh 'npm test'
             }
           }
         stage('Docker Comopse Up') {
