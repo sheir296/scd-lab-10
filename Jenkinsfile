@@ -16,7 +16,7 @@ pipeline {
         
         stage('build') {
             steps {
-                sh 'cd jenkins/app/models'
+                sh 'cd app/models'
             }
         }
         
