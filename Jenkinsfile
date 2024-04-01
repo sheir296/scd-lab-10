@@ -16,11 +16,17 @@ pipeline {
             }
         }
         
-        // You can skip the test stage
+        stage('test') {
+            steps {
+                // Run the tests
+                sh 'npm test'
+            }
+        }
         
         stage('build') {
             steps {
-                // Build the project
+                // Build the project (if needed)
+                // Replace this with the actual build command if required
                 sh 'npm run build'
             }
         }
